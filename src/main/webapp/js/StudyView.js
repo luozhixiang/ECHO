@@ -2,7 +2,8 @@
 
 	brite.registerView("StudyView", {
 		loadTmpl : true,
-		emptyParent : true
+		emptyParent : true,
+		parent : ".MainScreen-content"
 	}, {
 		create : function(data, config) {
 			var view = this;
@@ -15,6 +16,10 @@
 		 	view.create_content = $e.find(".create-content");
 		 	view.studies_content = $e.find(".studies-content");
 		 	refresh.call(view);
+		},
+		
+		events: {
+			"btap; .btn-create-new": createStudyMethod 
 		}
 
 	});
@@ -32,6 +37,11 @@
 			}
 		});
 
+	}
+	
+	function createStudyMethod(event){
+		var view = this;
+		brite.display("StudyCreate");
 	}
 	// --------- /Event Methods --------- //
 	
