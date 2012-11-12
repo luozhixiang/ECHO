@@ -17,6 +17,8 @@
 		postDisplay : function(data, config) {
 			var view = this;
 			var $e = view.$el;
+			var $content = $e.find(".MainScreen-content");
+			brite.display("StudyView",$content);
 		}
 
 	});
