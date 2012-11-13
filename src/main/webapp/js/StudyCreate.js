@@ -7,7 +7,7 @@
 	}, {
 		create : function(data, config) {
 			var view = this;
-			return $("#tmpl-StudyCreate").render({});
+			return $("#tmpl-StudyCreate").render(data);
 		},
 		
 		postDisplay: function(data){

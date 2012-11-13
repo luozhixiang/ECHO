@@ -6,9 +6,9 @@
         </div>
         <div class="content">
         	<p><button class="btn btn-large btn-block btn-primary btnDetail">Details</button></p> 
-        	<p><button class="btn btn-large btn-block btn-primary btnTask">Tasks</button></p> 
-        	<p><button class="btn btn-large btn-block btn-primary btnTestUser">Users</button></p> 
-        	<p><button class="btn btn-large btn-block btn-primary btnResult">Results</button></p> 
+        	<p><button class="btn btn-large btn-block btn-primary btnTask" {{if sid==0}}disabled{{/if}}>Tasks</button></p> 
+        	<p><button class="btn btn-large btn-block btn-primary btnTestUser" {{if sid==0}}disabled{{/if}}>Users</button></p> 
+        	<p><button class="btn btn-large btn-block btn-primary btnResult" {{if sid==0}}disabled{{/if}}>Results</button></p> 
         	<div class="bottom">
         		<label>Empower Experience</label>
         	</div>

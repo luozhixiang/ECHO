@@ -18,7 +18,7 @@
 		},
 		
 		events: {
-			"btap; .btn-create-new": createTaskMethod 
+			"btap; .btn-create-new": createTaskMethod,
 			
 			"btap; .items": updateTaskMethod 
 		}
@@ -44,11 +44,15 @@
 //
 //	}
 	
-	function createStudyMethod(event){
+	function createTaskMethod(event){
 		var view = this;
 		brite.display("TaskCreate");
 	}
 
+	function updateTaskMethod(event){
+		var view = this;
+		brite.display("TaskCreate");
+	}
 	
 	// --------- /Event Methods --------- //
 	
