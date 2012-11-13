@@ -13,7 +13,7 @@
 		postDisplay: function(data){
 			var view = this;
 		 	var $e = view.$el;
-		 	view.sid = data.sid || 0;
+		 	view.sid = data.id || 0;
 		},
 		
 		events: {
@@ -35,13 +35,13 @@
 		var view = this;
 		var $e = view.$el;
 		
-		var id = view.id;
+		var id = view.sid;
 		var name = $e.find(".content input[name='name']").val();
 		var tags = $e.find(".content input[name='tags']").val();
 		var description = $e.find(".content textarea[name='description']").val();
 		var study = {id:id,name:name,tags:tags,description:description};
 		
-		if(id!=0){
+		if(id==0){
 			var date = new Date();
 			study.creationDate = date;
 			brite.dao("Study").create(study).done(function(study){

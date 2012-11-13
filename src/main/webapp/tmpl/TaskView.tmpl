@@ -1,0 +1,40 @@
+<script id="tmpl-TaskView" type="text/html">
+	<div class="TaskView">
+        <div class="content">
+        	<div class="task-content">
+				<div class="navs">      
+					  <div class="justify"><i class="icon-align-justify"></i></div>
+					  <div class="title"><span>Studies</span></div>
+					  <div class="menu"><i class="icon-align-justify"></i></div>
+		        </div>
+		        <div class="task-list">      
+					<div class="top-create">
+	        			<div class="create-btn btn-create-new"><span>Add Task</span></div>
+	        			<div class="line-dash">&nbsp;</div>
+	        		</div>
+	        		<div class="bottom-list">
+	        			<div class="items">
+	        				<div class="title"><label>Bob's Big Bad Beer Study</label></div>
+	        				<div class="date-tags">
+	        					<span class="creation-date">12 Sep 2012</span>
+	        					<span class="tags">Routers, Technology, Benchmark</span>
+	        				</div>
+	        			<div>
+	        		</div>
+		        </div>
+        	</div>
+        </div>
+	</div>  
+</script>
+
+<script id="tmpl-TaskView-task-item" type="text/html">
+	{{for studies}}
+	<div class="items" data-entity-id="{{:id}}">
+		<div class="title"><label>{{:name}}</label></div>
+		<div class="date-tags">
+			<span class="creation-date">{{:formatCreationDate}}</span>
+			<span class="tags">{{:tags}}</span>
+		</div>
+	</div>
+	{{/for}}
+</script>
