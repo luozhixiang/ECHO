@@ -37,11 +37,13 @@
 </script>
 
 <script id="tmpl-StudyView-studies-item" type="text/html">
-	<div class="items">
+	{{for studies}}
+	<div class="items" data-entity-id="{{:id}}">
 		<div class="title"><label>{{:name}}</label></div>
 		<div class="date-tags">
-			<span class="creation-date">{{:creationDate}}</span>
+			<span class="creation-date">{{:formatCreationDate}}</span>
 			<span class="tags">{{:tags}}</span>
 		</div>
-	<div>
+	</div>
+	{{/for}}
 </script>
