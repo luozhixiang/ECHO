@@ -10,13 +10,15 @@
 			return $("#tmpl-StudyCreate").render({});
 		},
 		
-		postDisplay: function(){
+		postDisplay: function(data){
 			var view = this;
+			view.sid = data.sid;
 		 	var $e = view.$el;
 		},
 		
 		events: {
-			"btap; .btnBack": btnBackMethod 
+			"btap; .btnBack": btnBackMethod,
+			"btap; .btnDetail": btnDetailMethod 
 		}
 
 	});
@@ -25,6 +27,14 @@
 	// --------- Event Methods --------- //
 	function btnBackMethod(){
 		brite.display("StudyView");
+	}
+	
+	function btnDetailMethod(){
+		var view = this;
+		brite.dao("Study").get(view.sid).done(function(study){
+			study = study || {};
+			brite.display("DetailCreate",null,study);
+		});
 	}
 	// --------- /Event Methods --------- //
 	

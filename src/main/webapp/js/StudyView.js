@@ -41,7 +41,7 @@
 	
 	function createStudyMethod(event){
 		var view = this;
-		brite.display("StudyCreate");
+		brite.display("StudyCreate",null,{sid:0});
 	}
 	// --------- /Event Methods --------- //
 	
