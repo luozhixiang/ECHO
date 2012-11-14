@@ -12,7 +12,7 @@
 						if(studyList && studyList.length > 0){
 							haveStudy = true;
 							$.each(studyList,function(i,study){
-								study.formatCreationDate = app.formatDate(study.creationDate,"medium");
+								study.formatCreationDate = app.util.formatDate(study.creationDate,"medium");
 							});
 						}
 						return $("#tmpl-StudyView").render({studies:studyList, haveStudy:haveStudy});
@@ -25,7 +25,6 @@
 		 	view.create_content = $e.find(".create-content");
 		 	view.studies_content = $e.find(".studies-content");
 		 	view.studies_list = $e.find(".studies-list .bottom-list");
-		 	//refresh.call(view);
 		},
 		
 		events: {
