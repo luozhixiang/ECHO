@@ -7,7 +7,16 @@
 	}, {
 		create : function(data, config) {
 			var view = this;
-			return $("#tmpl-StudyView").render({});
+			return $.when(brite.dao("Study").list()).pipe(function(studyList){
+						var haveStudy = false;
+						if(studyList && studyList.length > 0){
+							haveStudy = true;
+							$.each(studyList,function(i,study){
+								study.formatCreationDate = app.formatDate(study.creationDate,"medium");
+							});
+						}
+						return $("#tmpl-StudyView").render({studies:studyList, haveStudy:haveStudy});
+					});	
 		},
 		
 		postDisplay: function(){
@@ -16,7 +25,7 @@
 		 	view.create_content = $e.find(".create-content");
 		 	view.studies_content = $e.find(".studies-content");
 		 	view.studies_list = $e.find(".studies-list .bottom-list");
-		 	refresh.call(view);
+		 	//refresh.call(view);
 		},
 		
 		events: {
@@ -31,19 +40,6 @@
 	function refresh() {
 		var view = this;
 		var $e = view.$el;
-		
-		brite.dao("Study").list().done(function(studies) {
-			if(studies && studies.length>0){
-				$.each(studies,function(i,study){
-					study.formatCreationDate = app.formatDate(study.creationDate,"medium");
-				});
-				view.studies_list.empty().append($("#tmpl-StudyView-studies-item").render({studies:studies}));
-				view.studies_content.removeClass("hide");
-			}else{
-				view.create_content.removeClass("hide");
-			}
-		});
-
 	}
 	
 	function createStudyMethod(event){

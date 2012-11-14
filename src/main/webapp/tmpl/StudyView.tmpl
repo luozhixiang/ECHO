@@ -1,16 +1,8 @@
 <script id="tmpl-StudyView" type="text/html">
 	<div class="StudyView">
         <div class="content">
-        	<div class="create-content hide">
-        		<div class="top">
-        			<button class="btn btn-large btn-primary btn-create-new">Create a study now!</button>
-        		</div>
-        		
-        		<div class="bottom">
-        			<label>Empower EXPERIENCE</label>
-        		</div>
-        	</div>
-        	<div class="studies-content hide">
+        	{{if haveStudy}}
+        	<div class="studies-content">
 				<div class="navs">      
 					  <div class="justify"><i class="icon-align-justify"></i></div>
 					  <div class="title"><span>Studies</span></div>
@@ -22,16 +14,21 @@
 	        			<div class="line-dash">&nbsp;</div>
 	        		</div>
 	        		<div class="bottom-list">
-	        			<div class="items">
-	        				<div class="title"><label>Bob's Big Bad Beer Study</label></div>
-	        				<div class="date-tags">
-	        					<span class="creation-date">12 Sep 2012</span>
-	        					<span class="tags">Routers, Technology, Benchmark</span>
-	        				</div>
-	        			<div>
+	        			{{for #data tmpl="#tmpl-StudyView-studies-item" /}}
 	        		</div>
 		        </div>
         	</div>
+        	{{else}}
+        	<div class="create-content">
+        		<div class="top">
+        			<button class="btn btn-large btn-primary btn-create-new">Create a study now!</button>
+        		</div>
+        		
+        		<div class="bottom">
+        			<label>Empower EXPERIENCE</label>
+        		</div>
+        	</div>
+			{{/if}}
         </div>
 	</div>  
 </script>
