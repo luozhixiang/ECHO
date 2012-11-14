@@ -7,7 +7,7 @@
 	}, {
 		create : function(data, config) {
 			var view = this;
-			return $.when(brite.dao("Study").list()).pipe(function(studyList){
+			return $.when(app.StudyDao.list()).pipe(function(studyList){
 						var haveStudy = false;
 						if(studyList && studyList.length > 0){
 							haveStudy = true;

@@ -44,11 +44,11 @@
 		if(id==0){
 			var date = new Date();
 			study.creationDate = date;
-			brite.dao("Study").create(study).done(function(study){
+			app.StudyDao.create(study).done(function(study){
 				brite.display("StudyCreate",null,{sid:study.id});
 			});
 		}else{
-			brite.dao("Study").update(study).done(function(study){
+			app.StudyDao.update(study).done(function(study){
 				brite.display("StudyCreate",null,{sid:study.sid});			
 			});
 		}

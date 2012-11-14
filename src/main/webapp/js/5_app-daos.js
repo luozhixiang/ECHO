@@ -3,7 +3,7 @@ var app = app || {};
 (function($){
 	
 	//register InMemoryDao
-	brite.registerDao(new brite.InMemoryDaoHandler("Study"));
+	app.StudyDao = brite.registerDao(new brite.InMemoryDaoHandler("Study"));
 	
 	// add dao listeners
 	brite.dao.onDao(function(event) {

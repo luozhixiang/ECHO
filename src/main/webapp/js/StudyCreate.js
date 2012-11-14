@@ -34,7 +34,7 @@
 	
 	function btnDetailMethod(){
 		var view = this;
-		brite.dao("Study").get(view.sid).done(function(study){
+		app.StudyDao.get(view.sid).done(function(study){
 			study = study || {};
 			brite.display("DetailCreate",null,study);
 		});
