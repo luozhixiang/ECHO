@@ -21,7 +21,7 @@
 		events: {
 			"btap; .btnUser": btnUserMethod,
 			
-			"btap; .btnBackHome": btnBackMethod
+			"btap; .btnBack": btnBackMethod
 		}
 
 	});
