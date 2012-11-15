@@ -7,6 +7,7 @@
 	}, {
 		create : function(data, config) {
 			return $.when(app.TestUserDao.list({match:{study_id:data.sid}})).pipe(function(users){
+				$.each(users,function(i,user){ user.index=i+1; });
 				return $("#tmpl-TestUserView").render({users:users});
 			});	
 		},
@@ -18,15 +19,22 @@
 		},
 		
 		events: {
-			"btap; .btnTask": btnTaskMethod
+			"btap; .btnUser": btnUserMethod,
+			
+			"btap; .btnBackHome": btnBackMethod
 		}
 
 	});
 	
 	// --------- Event Methods --------- //
-	function btnTaskMethod(event){
+	function btnUserMethod(event){
 		var view = this;
-		brite.display("TaskCreate",null,{studytId:view.studytId});
+		brite.display("TestUserCreate",null,{sid:view.study_id});
+	}
+	
+	function btnBackMethod(){
+		var view = this;
+		brite.display("StudyCreate",null,{sid:view.study_id});
 	}
 	// --------- /Event Methods --------- //
 	
